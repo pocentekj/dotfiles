@@ -1,0 +1,81 @@
+@import "mocha.css";
+
+* {
+  font-family: "JetBrainsMono Nerd Font", "FiraCode Nerd Font", "FontAwesome", "Symbols Nerd Font", sans-serif;
+  font-size: 15px;
+  color: @text;
+  min-height: 0;
+}
+
+window#waybar {
+  background-color: rgba(30,30,46,0.85);
+  border-top: 2px solid;
+  border-image: linear-gradient(45deg, #33ccff 0%, #00ff99 100%) 1 0 0 0;
+  /*border-radius: 12px 12px 0 0;*/
+  box-shadow: 0 0 16px 0 #33ccff, 0 0 32px 0 #00ff99;
+  margin: 8px 8px 0 8px;
+}
+
+#custom-wsid {
+  color: @pink;
+  margin-top: 2px;
+  font-weight: bold;
+  padding: 0 10px;
+  background-color: @surface2;
+}
+
+#cpu, #memory, #temperature {
+  margin-left: 15px;
+}
+
+#cpu {
+  min-width: 48px;
+}
+
+#custom-nvidia {
+  margin-left: 5px;
+  min-width: 70px;
+}
+
+#tray, #pulseaudio, #network, #battery, #clock, #power-profiles-daemon {
+  background: transparent;
+  /*border-radius: 8px;*/
+  margin-left: 5px;
+  margin-right: 5px;
+  padding: 12px 8px 10px 8px;
+  /*box-shadow: 0 0 5px 0px @blue;*/
+}
+
+#idle_inhibitor {
+  min-width: 28px;
+}
+
+#battery.critical {
+  color: @red;
+  font-weight: bold;
+}
+
+#clock {
+  color: @pink;
+  font-weight: bold;
+  text-shadow: 0 0 2px @flamingo;
+}
+
+#pulseaudio.muted {
+  color: @surface2;
+}
+#pulseaudio {
+  color: @flamingo;
+}
+
+button:hover {
+  background: @surface1;
+  border-radius: 8px;
+}
+
+#custom-vpn {
+  padding-top: 2px;
+  min-width: 28px;
+  font-size: 24px;
+}
+
