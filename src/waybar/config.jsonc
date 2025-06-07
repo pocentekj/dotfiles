@@ -15,7 +15,8 @@
         "cpu",
         "memory",
         "temperature",
-        "custom/nvidia"
+        "custom/nvidia",
+        "custom/mounts"
     ],
     "modules-center": [
         "sway/window"
@@ -207,20 +208,20 @@
         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     },
-    "hyprland/workspaces": {
-        "disable-scroll": true,
-		"format": "{name} {icon}",
-		"format-icons": {
-			"active": " ",
-			"default": " "
-		},
-        "persistent_workspaces": {
-            "1": [],
-            "2": [],
-            "3": [],
-            "4": [],
-        },
-    },
+    // "hyprland/workspaces": {
+    //     "disable-scroll": true,
+	// 	"format": "{name} {icon}",
+	// 	"format-icons": {
+	// 		"active": " ",
+	// 		"default": " "
+	// 	},
+    //     "persistent_workspaces": {
+    //         "1": [],
+    //         "2": [],
+    //         "3": [],
+    //         "4": [],
+    //     },
+    // },
     "custom/vpn": {
         "exec": "~/.config/waybar/scripts/vpn_status.sh",
         "interval": 5,
@@ -228,14 +229,20 @@
         "name": "vpn"
     },
     "custom/nvidia": {
-      "exec": "~/.config/waybar/scripts/nvidia_temp.sh",
-      "interval": 5,
-      "return-type": "json"
+        "exec": "~/.config/waybar/scripts/nvidia_temp.sh",
+        "interval": 5,
+        "return-type": "json"
     },
     "custom/wsid": {
-      "exec": "~/.config/waybar/scripts/workspace_index.sh",
-      "interval": 1,
-      "return-type": "json"
+        "exec": "~/.config/waybar/scripts/workspace_index.sh",
+        "interval": 1,
+        "return-type": "json"
+    },
+    "custom/mounts": {
+        "format": "{text}",
+        "exec": "~/.config/waybar/scripts/mounts.sh",
+        "interval": 10,
+        "return-type": "json"
     }
     // "custom/power": {
     //     "format" : "⏻ ",

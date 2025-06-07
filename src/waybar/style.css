@@ -37,6 +37,13 @@ window#waybar {
   min-width: 70px;
 }
 
+#custom-mounts {
+  padding: 0 10px;
+  margin: 2px 0 0 15px;
+  border-left: 1px solid @surface2;
+  border-right: 1px solid @surface2;
+}
+
 #tray, #pulseaudio, #network, #battery, #clock, #power-profiles-daemon {
   background: transparent;
   /*border-radius: 8px;*/
