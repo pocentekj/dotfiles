@@ -20,9 +20,13 @@ alias yt-dlp="$HOME/Workspace/sources/yt-dlp/.venv/bin/yt-dlp"
 # Just a shortcut. There's also `nv` command available via script in `~/.local/bin/nv`.
 alias v="nvim"
 
+# Run fzf in current directory with nice preview enabled - requires both
+# fzf and bat to be installed
+alias fzp="fzf --multi --preview 'bat --color always {}'"
+
 # Find a file and open with Neovim
 nvf() {
-  nvim -o $(fzf --multi --preview 'batcat --color always {}' | tr '\n' ' ')
+  nvim -o $(fzf --multi --preview 'bat --color always {}' | tr '\n' ' ')
 }
 
 # ProtonVPN over WireGuard
