@@ -33,3 +33,8 @@ nvf() {
 alias vpn-up='sudo wg-quick up proton-pl'
 alias vpn-down='sudo wg-quick down proton-pl'
 
+# Sync MEGA driva using rclone - push from local directory
+# *NOTE*: You have to configure `rclone` first and create remote with a name MEGA
+# *NOTE*: Files will be uploaded to remote `gen3` directory
+alias msync='rclone sync ~/MEGA MEGA:gen3'
+
