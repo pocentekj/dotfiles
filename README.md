@@ -18,3 +18,14 @@ ln -s $(pwd)/to/project/src/kitty "$HOME/.config/"
 
 Check out `setup.sh` for reference as it usually contains more up-to-date list.
 
+# Scripts
+
+in `src/scripts` directory you'll find a collection of small useful scripts for
+various purposes. You can place them anywhere on the PATH as they're already
+executable. The usual way I do it is to add `~/.local/bin` to my `PATH` and then
+symlink items from `src/scripts`, like this:
+
+```
+ln -s $(pwd)/src/scripts/nv.sh "$HOME/.local/bin/nv"
+```
+
