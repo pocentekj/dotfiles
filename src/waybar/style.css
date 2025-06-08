@@ -1,7 +1,7 @@
 @import "mocha.css";
 
 * {
-  font-family: "JetBrainsMono Nerd Font", "FiraCode Nerd Font", "FontAwesome", "Symbols Nerd Font", sans-serif;
+  font-family: "Ubuntu", "JetBrainsMono Nerd Font", "FiraCode Nerd Font", "FontAwesome", "Symbols Nerd Font", sans-serif;
   font-size: 15px;
   color: @text;
   min-height: 0;

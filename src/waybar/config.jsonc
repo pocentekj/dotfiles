@@ -8,7 +8,7 @@
     // Choose the order of the modules
     "modules-left": [
         "custom/wsid",
-        "hyperland/workspaces",
+        // "hyperland/workspaces",
         "sway/mode",
         "sway/scratchpad",
         "custom/media",
@@ -18,9 +18,9 @@
         "custom/nvidia",
         "custom/mounts"
     ],
-    "modules-center": [
-        "sway/window"
-    ],
+    // "modules-center": [
+    //     "hyprland/window"
+    // ],
     "modules-right": [
         "mpd",
         "idle_inhibitor",
