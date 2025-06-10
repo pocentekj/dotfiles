@@ -7,7 +7,7 @@
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
-        "custom/wsid",
+        // "custom/wsid",
         // "hyperland/workspaces",
         "sway/mode",
         "sway/scratchpad",
@@ -16,7 +16,8 @@
         "memory",
         "temperature",
         "custom/nvidia",
-        "custom/mounts"
+        "custom/mounts",
+        "custom/workspaces"
     ],
     // "modules-center": [
     //     "hyprland/window"
@@ -195,6 +196,12 @@
             "default": ["", "", ""]
         },
         "on-click": "pavucontrol"
+    },
+    "custom/workspaces": {
+        "exec": "~/.config/waybar/scripts/workspaces.py",
+        "interval": 1,
+        "return-type": "json",
+        "format": "{text}"
     },
     "custom/media": {
         "format": "{icon} {text}",
