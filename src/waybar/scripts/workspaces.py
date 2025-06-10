@@ -6,11 +6,18 @@ import json
 # Colors (Catppuccin pink as example)
 active_fg = "#f5c2e7"
 
+# Common arguments for subprocess output check function
+ws_out_opts = {
+    "text": True,
+    "encoding": "utf-8",
+    "errors": "replace",
+}
+
 # Get active workspace
-active = int(re.search(r"workspace ID (\d+)", subprocess.check_output(["hyprctl", "activeworkspace"], text=True)).group(1))
+active = int(re.search(r"workspace ID (\d+)", subprocess.check_output(["hyprctl", "activeworkspace"], **ws_out_opts)).group(1))
 
 # Get all workspaces
-ws_raw = subprocess.check_output(["hyprctl", "workspaces"], text=True)
+ws_raw = subprocess.check_output(["hyprctl", "workspaces"], **ws_out_opts)
 blocks = re.split(r"\n(?=workspace ID)", ws_raw.strip())
 
 parts = []
