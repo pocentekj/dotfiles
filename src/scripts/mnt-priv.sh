@@ -4,7 +4,7 @@
 USERNAME=$(whoami)
 MNT_NAME="PRIVATE"
 MNT_DIRN="/media/$USERNAME/$MNT_NAME"
-DEV_PATH="/dev/sda2"
+DEV_PATH="/dev/sdc1"
 
 function mount_priv() {
     sudo mkdir -p "$MNT_DIRN"
@@ -25,4 +25,3 @@ if mount -l | grep -q "$MNT_DIRN"; then
 else
     mount_priv
 fi
-

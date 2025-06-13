@@ -23,4 +23,3 @@ if mount -l | grep -q "$MNT_DIRN"; then
 else
     mount_media
 fi
-
