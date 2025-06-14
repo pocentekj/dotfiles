@@ -4,7 +4,7 @@
 USERNAME=$(whoami)
 MNT_NAME="PRIVATE"
 MNT_DIRN="/media/$USERNAME/$MNT_NAME"
-DEV_PATH="/dev/sdc1"
+DEV_PATH="/dev/sdb1"
 
 function mount_priv() {
     sudo mkdir -p "$MNT_DIRN"
