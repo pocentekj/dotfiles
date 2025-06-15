@@ -53,6 +53,14 @@ window#waybar {
   /*box-shadow: 0 0 5px 0px @blue;*/
 }
 
+#tray {
+  margin-top: 2px;
+  padding: 0 0.5em;
+  border-left: 1px solid @surface2;
+  border-right: 1px solid @surface2;
+  font-weight: bold;
+}
+
 #idle_inhibitor {
   min-width: 28px;
 }
