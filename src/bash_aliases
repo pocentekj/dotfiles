@@ -29,10 +29,6 @@ nvf() {
   nvim -o $(fzf --multi --preview 'bat --color always {}' | tr '\n' ' ')
 }
 
-# ProtonVPN over WireGuard
-alias vpn-up='sudo wg-quick up proton-pl'
-alias vpn-down='sudo wg-quick down proton-pl'
-
 # Sync MEGA driva using rclone - push from local directory
 # *NOTE*: You have to configure `rclone` first and create remote with a name MEGA
 # *NOTE*: Files will be uploaded to remote `gen3` directory
@@ -40,3 +36,9 @@ alias msync='rclone sync /media/chester/PRIVATE/MEGA MEGA:gen3'
 
 # use ffplay to loop sound infinitely
 alias ffloop='ffplay -nodisp -autoexit -loop 0'
+
+# VPN via WireGuard management
+#alias vpn-up='sudo wg-quick up proton-pl'
+#alias vpn-down='sudo wg-quick down proton-pl'
+wqu() { sudo wg-quick up "proton-$1" }
+wqd() { sudo wg-quick down "proton-$1" }
