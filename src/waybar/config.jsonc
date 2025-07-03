@@ -234,7 +234,9 @@
         "exec": "~/.config/waybar/scripts/vpn_status.sh",
         "interval": 5,
         "return-type": "json",
-        "name": "vpn"
+        "name": "vpn",
+        "format": "{}",
+        "markup": "pango"
     },
     "custom/nvidia": {
         "exec": "~/.config/waybar/scripts/nvidia_temp.sh",
