@@ -10,9 +10,9 @@
     "modules-left": [
         // "custom/wsid",
         // "hyperland/workspaces",
-        "sway/mode",
-        "sway/scratchpad",
-        "custom/media",
+        // "sway/mode",
+        // "sway/scratchpad",
+        // "custom/media",
         "cpu",
         "memory",
         "temperature",
@@ -24,20 +24,20 @@
     //     "hyprland/window"
     // ],
     "modules-right": [
-        "mpd",
+        // "mpd",
         // "idle_inhibitor",
         "tray",
         "pulseaudio",
         "network",
         "custom/vpn",
-        "power-profiles-daemon",
-        "backlight",
-        "keyboard-state",
-        "sway/language",
-        "battery",
-        "battery#bat2",
-        "clock",
-        "custom/power"
+        // "power-profiles-daemon",
+        // "backlight",
+        // "keyboard-state",
+        // "sway/language",
+        // "battery",
+        // "battery#bat2",
+        "clock"
+        // "custom/power"
     ],
     // Modules configuration
     // "sway/workspaces": {
