@@ -1,9 +1,10 @@
 /* The name of the window itself */
 #window {
-  background-color: rgba(24, 24, 24, 0.8);
+  background-color: rgba(30, 30, 46, 0.85);
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
-  border-radius: 1rem;
   font-size: 1.2rem;
+  border: 2px solid #20ded8;
+  border-radius: 1rem;
   /* The name of the box that contains everything */
 }
 #window #outer-box {
@@ -18,11 +19,12 @@
   padding: 0.8rem 1rem;
   font-size: 1.5rem;
   border-radius: 1rem 1rem 0 0;
+  border: 2px solid #20ded8;
 }
 #window #outer-box #input:focus, #window #outer-box #input:focus-visible, #window #outer-box #input:active {
-  border: none;
+  /*border: none;
   outline: 2px solid transparent;
-  outline-offset: 2px;
+  outline-offset: 2px;*/
 }
 #window #outer-box #scroll {
   /* The name of the box containing all of the entries */
