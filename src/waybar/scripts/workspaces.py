@@ -37,7 +37,7 @@ for b in blocks:
 
 # Output a single JSON object as required by Waybar
 print(json.dumps({
-    "text": " | ".join(parts),
+    "text": "  |  ".join(parts),
     "tooltip": tooltip or "No title"
 }))
 

@@ -1,7 +1,7 @@
 @import "mocha.css";
 
 * {
-  font-family: "Ubuntu", "JetBrainsMono Nerd Font", "FiraCode Nerd Font", "FontAwesome", "Symbols Nerd Font", sans-serif;
+  font-family: "Ubuntu Nerd Font", "Ubuntu", "JetBrainsMono Nerd Font", "FiraCode Nerd Font", "FontAwesome", "Symbols Nerd Font", sans-serif;
   font-size: 15px;
   color: @text;
   min-height: 0;
@@ -29,12 +29,12 @@ window#waybar {
 }
 
 #cpu {
-  min-width: 52px;
+  min-width: 48px;
 }
 
 #custom-nvidia {
   margin-left: 5px;
-  min-width: 70px;
+  min-width: 50px;
 }
 
 #custom-mounts {
@@ -46,6 +46,7 @@ window#waybar {
 
 #tray, #pulseaudio, #network, #battery, #clock, #power-profiles-daemon {
   background: transparent;
+  font-size: 16px;
   /*border-radius: 8px;*/
   margin-left: 5px;
   margin-right: 5px;
@@ -101,6 +102,5 @@ button:hover {
   padding: 0 0.5em;
   background: rgba(30,30,46,0.35);
   border-right: 1px solid @surface2;
-  font-weight: bold;
+  font-size: 18px;
 }
-
