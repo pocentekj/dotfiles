@@ -68,8 +68,6 @@ window#waybar {
 #window {
   font-weight: bold;
   padding: 0 15px 3px 15px;
-  border-left: 1px solid @surface2;
-  border-right: 1px solid @surface2;
   margin-top: 2px;
 }
 
