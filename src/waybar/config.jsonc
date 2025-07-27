@@ -2,7 +2,8 @@
 {
     // "layer": "top", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
-    "output": "HDMI-A-2",
+    // "output": "HDMI-A-2",
+    "output": "DP-6",
     "height": 30, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
@@ -20,9 +21,9 @@
         "custom/mounts",
         "custom/workspaces"
     ],
-    // "modules-center": [
-    //     "hyprland/window"
-    // ],
+    "modules-center": [
+        "hyprland/window"
+    ],
     "modules-right": [
         // "mpd",
         // "idle_inhibitor",
