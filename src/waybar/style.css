@@ -80,6 +80,9 @@ window#waybar {
   color: @pink;
   font-weight: bold;
   text-shadow: 0 0 2px @flamingo;
+  border-left: 1px solid @surface2;
+  margin-top: 2px;
+  padding: 0 8 0 15px;
 }
 
 #pulseaudio.muted {
@@ -87,6 +90,9 @@ window#waybar {
 }
 #pulseaudio {
   color: @flamingo;
+  border-right: 1px solid @surface2;
+  margin-top: 2px;
+  padding: 0 8px 0 0;
 }
 
 button:hover {
