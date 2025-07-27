@@ -4,6 +4,9 @@ import re
 import subprocess
 from dataclasses import dataclass
 
+# Separator between workspace indexes
+SEP = f"{4 * ' '}|{4 * ' '}"
+
 # Active workspace color (Catppuccin pink as example)
 COLOR_FG_ACTIVE = "#f5c2e7"
 
@@ -48,7 +51,7 @@ def main():
         WorkspaceEntry(ws, ws == active_workspace)
         for ws in get_all_workspaces(sort=True)
     ]
-    print(json.dumps({"text": "  |  ".join(map(str, entries))}))
+    print(json.dumps({"text": SEP.join(map(str, entries))}))
 
 
 main()

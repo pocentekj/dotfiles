@@ -106,7 +106,7 @@ button:hover {
 
 #custom-workspaces {
   margin-top: 2px;
-  padding: 0 0.5em;
+  padding: 0 15px 3px 15px;
   background: rgba(30,30,46,0.35);
   border-right: 1px solid @surface2;
   font-size: 18px;
