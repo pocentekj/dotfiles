@@ -44,3 +44,10 @@ wqu() { sudo wg-quick up "proton-$1" }
 wqd() { sudo wg-quick down "proton-$1" }
 
 alias mnt='sudo mnt'
+
+alias gst='git status'
+alias gall='git add --all'
+alias gd='git diff'
+alias ga='git add'
+alias gc='git commit'
+alias gl='git log --pretty=oneline'

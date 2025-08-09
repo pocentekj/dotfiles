@@ -91,7 +91,6 @@ plugins=(
     docker
     docker-compose
     colored-man-pages
-    git
     uv
 )
 
