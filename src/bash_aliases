@@ -52,3 +52,9 @@ alias ga='git add'
 alias gc='git commit'
 alias gl='git log --pretty=oneline'
 alias gp='git push'
+
+function kanji() {
+  local line
+  line=$(cat -n $KANJI_DIC_DIRECTORY | rg "### $1" | cut -f1 | xargs)
+  [ -n "$line" ] && nv +$line $KANJI_DIC_DIRECTORY
+}

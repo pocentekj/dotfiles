@@ -125,6 +125,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# My custom environment variables
+[[ -f ~/.bash_variables ]] && source ~/.bash_variables
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -137,9 +140,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# My custom environment variables
-[[ -f ~/.bash_variables ]] && source ~/.bash_variables
-
 export PATH="$HOME/.local/bin:$PATH"
 
 # rustup toolchain in user environment
@@ -150,4 +150,5 @@ if [[ -n "$SSH_CONNECTION" ]]; then
   export TERM=xterm-256color
 fi
 
+# Tool that creates new workspace directory with 'mkws' command
 [[ -r ~/.zsh_workspaces ]] && source ~/.zsh_workspaces
