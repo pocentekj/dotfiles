@@ -38,23 +38,33 @@ alias msync='rclone sync /media/chester/DOCS/MEGA MEGA:gen3'
 alias ffloop='ffplay -nodisp -autoexit -loop 0'
 
 # VPN via WireGuard management
-#alias vpn-up='sudo wg-quick up proton-pl'
-#alias vpn-down='sudo wg-quick down proton-pl'
 wqu() { sudo wg-quick up "proton-$1" }
 wqd() { sudo wg-quick down "proton-$1" }
+alias wql="sudo wql"
+alias wqa="ip addr | grep proton- | cut -d' ' -f2 | sed 's/^proton-\([^:]*\):/\1/'"
 
 alias mnt='sudo mnt'
 
-alias gst='git status'
-alias gall='git add --all'
-alias gd='git diff'
 alias ga='git add'
+alias gall='git add --all'
 alias gc='git commit'
+alias gca='git commit --amend'
+alias gd='git diff'
 alias gl='git log --pretty=oneline'
 alias gp='git push'
+alias gpf='git push --force'
+alias gst='git status'
 
 function kanji() {
   local line
   line=$(cat -n $KANJI_DIC_DIRECTORY | rg "### $1" | cut -f1 | xargs)
   [ -n "$line" ] && nv +$line $KANJI_DIC_DIRECTORY
 }
+
+fzfrun() {
+  local file
+  file=$(fzf) || return 1
+  setsid "$@" "$file" </dev/null >/dev/null 2>&1 &
+}
+
+pdf() { fzfrun evince; }
