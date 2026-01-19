@@ -10,9 +10,6 @@ alias xv="xclip -o"
 # Usefull when you want to display tree for project directory
 alias treegit="tree -aI .git --gitignore"
 
-# Override yt-dlp with current version from GitHub
-alias yt-dlp="$HOME/Workspace/sources/yt-dlp/.venv/bin/yt-dlp"
-
 # Rust-powered enhanced 'cat' alternative with syntax highlight.
 # Not working for Arch - program is already named 'bat'
 # alias bat="batcat"
