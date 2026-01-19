@@ -68,3 +68,4 @@ fzfrun() {
 }
 
 pdf() { fzfrun evince; }
+vid() { fzfrun mpv; }
