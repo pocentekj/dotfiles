@@ -1,46 +1,10 @@
-# Copy terminal output to clipboard, e.g. '$ uptime | xc'.
-alias xc="xclip -selection clipboard"
+# COMMON
+# -----------------------------------------------------------------------------
 
-# Paste clipboard content into terminal.
-#
-#   NOTE: use ` `, e.g. '$ echo `xv`' or just '$ `xv`'.
-#         The latter will execute pasted command.
-alias xv="xclip -o"
+alias tg="tree -aI .git --gitignore"
 
-# Usefull when you want to display tree for project directory
-alias treegit="tree -aI .git --gitignore"
-
-# Rust-powered enhanced 'cat' alternative with syntax highlight.
-# Not working for Arch - program is already named 'bat'
-# alias bat="batcat"
-
-# Just a shortcut. There's also `nv` command available via script in `~/.local/bin/nv`.
-alias v="nvim"
-
-# Run fzf in current directory with nice preview enabled - requires both
-# fzf and bat to be installed
-alias fzp="fzf --multi --preview 'bat --color always {}'"
-
-# Find a file and open with Neovim
-nvf() {
-  nvim -o $(fzf --multi --preview 'bat --color always {}' | tr '\n' ' ')
-}
-
-# Sync MEGA driva using rclone - push from local directory
-# *NOTE*: You have to configure `rclone` first and create remote with a name MEGA
-# *NOTE*: Files will be uploaded to remote `gen3` directory
-alias msync='rclone sync /media/chester/DOCS/MEGA MEGA:gen3'
-
-# use ffplay to loop sound infinitely
-alias ffloop='ffplay -nodisp -autoexit -loop 0'
-
-# VPN via WireGuard management
-wqu() { sudo wg-quick up "proton-$1" }
-wqd() { sudo wg-quick down "proton-$1" }
-alias wql="sudo wql"
-alias wqa="ip addr | grep proton- | cut -d' ' -f2 | sed 's/^proton-\([^:]*\):/\1/'"
-
-alias mnt='sudo mnt'
+# GIT COMMANDS
+# -----------------------------------------------------------------------------
 
 alias ga='git add'
 alias gall='git add --all'
@@ -52,22 +16,61 @@ alias gp='git push'
 alias gpf='git push --force'
 alias gst='git status'
 
-function kanji() {
-  local line
-  line=$(cat -n $KANJI_DIC_DIRECTORY | rg "### $1" | cut -f1 | xargs)
-  [ -n "$line" ] && nv +$line $KANJI_DIC_DIRECTORY
-}
+# FUZZY SEARCH
+# -----------------------------------------------------------------------------
 
-fzfrun() {
+# Search with live preview
+alias fzp="fzf --multi --preview 'bat --color always {}'"
+
+# Run program on search results, e.g. 'fzr mpv'
+fzr() {
+  [ $# -gt 0 ] || { echo "Usage: fzr <cmd> [args...]"; return 2; }
   local file
   file=$(fzf) || return 1
   setsid "$@" "$file" </dev/null >/dev/null 2>&1 &
 }
 
-pdf() {
+# Edit search results in Neovim
+fze() { fzr nvim }
+
+fzmpv() { fzr mpv; }
+
+fzpdf() {
  local file
  file=$(fd -e pdf | fzf) || return 1
  setsid evince "$file" </dev/null >/dev/null 2>&1 &
 }
 
-vid() { fzfrun mpv; }
+# EDITOR
+# -----------------------------------------------------------------------------
+
+alias v="nvim"
+
+nv() {
+  local session_file="Session.vim"
+
+  # 1. If you provide any arguments, just run Neovim as usual (ignores session).
+  if [ $# -gt 0 ]; then
+      nvim "$@"
+      return $?
+  fi
+
+  # 2. If Session.vim exists, open Neovim with session and close [No Name] buffer after startup.
+  if [ -f "$session_file" ]; then
+      nvim -S "$session_file" +'silent! bwipeout 1'
+      return $?
+  fi
+
+  # 3. Fallback: open Neovim normally.
+  nvim
+}
+
+# EXTRAS
+# -----------------------------------------------------------------------------
+
+# Search personal Kanji catalogue
+function kanji() {
+  local line
+  line=$(cat -n $KANJI_DIC_DIRECTORY | rg "### $1" | cut -f1 | xargs)
+  [ -n "$line" ] && nv +$line $KANJI_DIC_DIRECTORY
+}
