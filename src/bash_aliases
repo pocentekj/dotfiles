@@ -20,7 +20,7 @@ alias gp='git push'
 alias gpf='git push --force'
 alias gst='git status'
 
-# FUZZY SEARCH
+# SEARCH
 # -----------------------------------------------------------------------------
 
 # Search with live preview
@@ -43,13 +43,23 @@ fze() {
       -E '*.png' -E '*.jpg' -E '*.jpeg' -E '*.gif' -E '*.webp' \
       -E '*.pdf' -E '*.zip' -E '*.tar' -E '*.gz' -E '*.xz' -E '*.7z' \
       -E '*.mp3' -E '*.flac' -E '*.wav' -E '*.mp4' -E '*.mkv' \
-      . ~ \
+      . \
     | fzf --preview 'bat --color=always -- {}'
   ) || return 1
   nvim -- "$file"
 }
 
-fzmpv() { fzr mpv; }
+fzmpv() {
+  local file
+  file=$(
+    fd -t f \
+      -e mp4 -e mkv -e webm -e mov -e m4v \
+      -e avi -e mpg -e mpeg -e flv -e ogv \
+      . \
+    | fzf
+  ) || return 1
+  setsid mpv "$file" </dev/null >/dev/null 2>&1 &
+}
 
 fzpdf() {
  local file
