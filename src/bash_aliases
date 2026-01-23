@@ -1,7 +1,11 @@
 # COMMON
 # -----------------------------------------------------------------------------
 
+alias ll="ls -lh --color"
+alias la="ls -lha --color"
 alias tg="tree -aI .git --gitignore"
+alias cp="cp -i"
+alias mv="mv -i"
 
 # GIT COMMANDS
 # -----------------------------------------------------------------------------
@@ -31,7 +35,19 @@ fzr() {
 }
 
 # Edit search results in Neovim
-fze() { fzr nvim }
+fze() {
+  local file
+  file=$(
+    fd -t f -H --follow \
+      -E .steam -E .git -E node_modules -E dist -E build -E target \
+      -E '*.png' -E '*.jpg' -E '*.jpeg' -E '*.gif' -E '*.webp' \
+      -E '*.pdf' -E '*.zip' -E '*.tar' -E '*.gz' -E '*.xz' -E '*.7z' \
+      -E '*.mp3' -E '*.flac' -E '*.wav' -E '*.mp4' -E '*.mkv' \
+      . ~ \
+    | fzf --preview 'bat --color=always -- {}'
+  ) || return 1
+  nvim -- "$file"
+}
 
 fzmpv() { fzr mpv; }
 
@@ -71,6 +87,9 @@ nv() {
 # Search personal Kanji catalogue
 function kanji() {
   local line
-  line=$(cat -n $KANJI_DIC_DIRECTORY | rg "### $1" | cut -f1 | xargs)
-  [ -n "$line" ] && nv +$line $KANJI_DIC_DIRECTORY
+  line=$(cat -n "$KANJI_DIC_FILE" | rg "### $1" | cut -f1 | xargs)
+  [ -n "$line" ] && nv +$line "$KANJI_DIC_FILE"
 }
+
+# Check local weather
+wttr() { curl -sS "wttr.in/${WTTR_LOC:-}" | head -n 7 }
