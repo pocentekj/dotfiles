@@ -1,0 +1,7 @@
+# An example configuration
+
+# Sent to wttr.in for weather information
+export WTTR_LOC=""
+
+# Used for kanji search command
+export KANJI_DIC_FILE=""
