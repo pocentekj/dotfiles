@@ -4,6 +4,9 @@
 .envrc
 Session.vim
 
+# This is auto-generated file
+src/mc/ini
+
 # Config files with secrets
-src/zshrc.d/00-env.zsh
 src/mc/hotlist
+src/zshrc.d/00-env.zsh
