@@ -4,7 +4,8 @@
 .envrc
 Session.vim
 
-# This is auto-generated file
+# This is auto-generated file. Edit ini.template instead and sync changes with
+# simple 'cp src/mc/ini.template src/mc/ini'
 src/mc/ini
 
 # Config files with secrets
