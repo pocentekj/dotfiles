@@ -1,0 +1,18 @@
+#compdef radio
+
+_radio() {
+  local -a stations
+  stations=(${(f)"$(${commands[radio]:-radio} --list 2>/dev/null)"})
+
+  _arguments \
+    '1:station:->stations' \
+    '*::args:->args'
+
+  case $state in
+    stations)
+      _describe -t stations 'radio station' stations
+      ;;
+  esac
+}
+
+_radio "$@"

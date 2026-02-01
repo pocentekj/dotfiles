@@ -1,6 +1,9 @@
+*.bak
+
 .env/
 .envrc
 Session.vim
 
-# Settings file - may contain secrets
+# Config files with secrets
 src/zshrc.d/00-env.zsh
+src/mc/hotlist
