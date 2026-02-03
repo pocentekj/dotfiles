@@ -1,0 +1,1 @@
+browser "/home/chester/Workspace/sources/firefox/mach run --no-remote -P private"
