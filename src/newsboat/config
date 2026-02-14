@@ -1,1 +1,1 @@
-browser "/home/chester/Workspace/sources/firefox/mach run --no-remote -P google"
+browser "firefox --no-remote -P news"
