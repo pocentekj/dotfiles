@@ -1,7 +1,3 @@
-# Supress warning from powerlevel instant prompt if there's some output before
-# "full initialization".
-typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
-
 # Override kitty terminal behavior while in SSH session
 if [[ -n "$SSH_CONNECTION" ]]; then
   export TERM=xterm-256color
@@ -154,3 +150,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # rustup toolchain in user environment
 [[ ! -f "$HOME/.cargo/env" ]] || source "$HOME/.cargo/env"
+
+# Supress warning from powerlevel instant prompt if there's some output before
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
