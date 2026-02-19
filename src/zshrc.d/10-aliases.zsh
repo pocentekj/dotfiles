@@ -50,6 +50,13 @@ fze() {
   nvim -- "$file"
 }
 
+# Search for markdown files with live preview (requires python-rich)
+fzmd() {
+  local file
+  file=$(fd -e md | fzf --preview 'python -m rich.markdown -- {}') || return 1
+  nvim -- "$file"
+}
+
 fzmpv() {
   local file
   file=$(
@@ -104,3 +111,5 @@ function kanji() {
 
 # Check local weather
 wttr() { curl -sS "wttr.in/${WTTR_LOC:-}" | head -n 7 }
+
+alias rich="python -m rich.markdown"
