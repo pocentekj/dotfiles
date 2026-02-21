@@ -112,4 +112,8 @@ function kanji() {
 # Check local weather
 wttr() { curl -sS "wttr.in/${WTTR_LOC:-}" | head -n 7 }
 
+# TODO: for some reason looses colors when used in pipes
 alias rich="python -m rich.markdown"
+
+# Alternate side-by-side diff viewer
+alias delta="DELTA_FEATURES=+side-by-side delta"
