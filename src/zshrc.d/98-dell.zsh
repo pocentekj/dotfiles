@@ -1,36 +1,73 @@
-# Dell P3225QE = Display 2
-DELL_DISP=2
+# Displays (ddcutil --display N)
+DELL=2
+LENOVO=1
 
-# --sleep-multiplier = slower, less retries
+# Common ddcutil wrapper
 _ddc() {
-  ddcutil --sleep-multiplier 2 --display "$DELL_DISP" "$@" 2>/dev/null
+  local disp=$1; shift
+  ddcutil --sleep-multiplier 2 --display "$disp" "$@" 2>/dev/null
 }
 
-_pause() { sleep 0.2; }
+_pause() { sleep 0.2 }
+
+# Apply a preset to a display in a readable way.
+# Usage: _apply <disp> <mode> <temp_preset> <brightness> <contrast> [R G B]
+#   mode: value for VCP DC (display mode). Usually 0x00 for Standard.
+#   temp_preset: value for VCP 14 (color preset) e.g. 0x05, 0x08, 0x0b
+#   R/G/B are VCP 16/18/1A (only meaningful when temp_preset is User 1/2)
+_apply() {
+  local disp=$1; shift
+  local mode=$1 preset=$2 bri=$3 con=$4
+  shift 4
+
+  _ddc $disp setvcp DC $mode
+  _ddc $disp setvcp 14 $preset
+  _pause
+
+  _ddc $disp setvcp 10 $bri
+  _ddc $disp setvcp 12 $con
+
+  # Optional RGB gains
+  if (( $# == 3 )); then
+    local r=$1 g=$2 b=$3
+    _ddc $disp setvcp 16 $r
+    _ddc $disp setvcp 18 $g
+    _ddc $disp setvcp 1A $b
+  fi
+}
+
+# ---------------- DELL P3225QE (Display 2) ----------------
 
 dell_daily() {
-  _ddc setvcp DC 0x00
-  _ddc setvcp 14 0x08 # 9300 K
-  _pause
-  _ddc setvcp 10 65   # brightness
-  _ddc setvcp 12 70   # contrast
+  _apply $DELL 0x00 0x08 65 70
 }
 
 dell_evening() {
-  _ddc setvcp DC 0x00
-  _ddc setvcp 14 0x05 # 6500 K
-  _pause
-  _ddc setvcp 10 55   # brightness
-  _ddc setvcp 12 55   # contrast
+  _apply $DELL 0x00 0x05 55 55
 }
 
 dell_night() {
-  _ddc setvcp DC 0x00
-  _ddc setvcp 14 0x0b # User presets - unlocks RGB
-  _pause
-  _ddc setvcp 10 52   # brightness
-  _ddc setvcp 12 65   # contrast
-  _ddc setvcp 16 52   # R
-  _ddc setvcp 18 50   # G
-  _ddc setvcp 1A 47   # B
+  # User 1 unlocks RGB
+  _apply $DELL 0x00 0x0b 52 65 52 50 47
 }
+
+# ---------------- LENOVO N27q (Display 1) ----------------
+
+lenovo_daily() {
+  _apply $LENOVO 0x00 0x05 60 70
+}
+
+lenovo_evening() {
+  _apply $LENOVO 0x00 0x05 45 60
+}
+
+lenovo_night() {
+  # Warm it up: more R, less B
+  _apply $LENOVO 0x00 0x0b 35 45 54 50 44
+}
+
+# ---------------- Whole desk macros ----------------
+
+work_daily()   { dell_daily;   lenovo_daily }
+work_evening() { dell_evening; lenovo_evening }
+work_night()   { dell_night;   lenovo_night }
