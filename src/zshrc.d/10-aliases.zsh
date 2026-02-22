@@ -110,7 +110,7 @@ function kanji() {
 }
 
 # Check local weather
-wttr() { curl -sS "wttr.in/${WTTR_LOC:-}" | head -n 7 }
+wttr() { curl -sS "wttr.in/${WTTR_LOC:-}" 2>/dev/null | sed -n '2,7p' }
 
 # TODO: for some reason looses colors when used in pipes
 alias rich="python -m rich.markdown"
