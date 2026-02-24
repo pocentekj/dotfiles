@@ -117,3 +117,5 @@ alias rich="python -m rich.markdown"
 
 # Alternate side-by-side diff viewer
 alias delta="DELTA_FEATURES=+side-by-side delta"
+
+alias mpvnv="mpv --no-video --loop"
