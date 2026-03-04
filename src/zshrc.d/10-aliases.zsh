@@ -8,6 +8,7 @@ alias cp="cp -i"
 alias mv="mv -i"
 alias rms="rm -i"
 alias wcp="wl-copy"
+alias wpp="wl-paste"
 
 # GIT COMMANDS
 # -----------------------------------------------------------------------------
@@ -24,6 +25,7 @@ alias gst='git status'
 
 # SEARCH
 # -----------------------------------------------------------------------------
+# NOTE: requires `fzf`, `bat`, and `fd`
 
 # Search with live preview
 alias fzp="fzf --multi --preview 'bat --color always {}'"
