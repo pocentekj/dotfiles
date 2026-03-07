@@ -127,3 +127,5 @@ alias rich="python -m rich.markdown"
 alias delta="DELTA_FEATURES=+side-by-side delta"
 
 alias mpvnv="mpv --no-video --loop"
+
+alias kata="kata-to-hira --color"
