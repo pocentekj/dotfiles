@@ -3,7 +3,7 @@
 
 alias ll="ls -lh --color"
 alias la="ls -lha --color"
-alias tg="tree -aI .git --gitignore"
+alias tg="tree -aI .git --gitignore --filesfirst"
 alias cp="cp -i"
 alias mv="mv -i"
 alias rms="rm -i"
@@ -27,6 +27,12 @@ alias gst='git status'
 # -----------------------------------------------------------------------------
 
 alias t='tmux'
+
+# SANE DEFAULTS
+# -----------------------------------------------------------------------------
+
+alias fd='fd --no-ignore-vcs --hidden'
+alias delta="DELTA_FEATURES=+side-by-side delta"
 
 # EDITOR
 # -----------------------------------------------------------------------------
@@ -63,11 +69,5 @@ alias kimg="kitty +kitten icat"
 # Check local weather
 wttr() { curl -sS "wttr.in/${WTTR_LOC:-}" 2>/dev/null | sed -n '2,7p' }
 
-# Alternate side-by-side diff viewer
-alias delta="DELTA_FEATURES=+side-by-side delta"
-
 # Useful for audio in background
 alias mpvnv="mpv --no-video --loop"
-
-# katakana -> hiragana search & replace
-alias kata="kata-to-hira --color"
