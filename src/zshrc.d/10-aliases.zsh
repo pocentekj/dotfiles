@@ -71,3 +71,6 @@ wttr() { curl -sS "wttr.in/${WTTR_LOC:-}" 2>/dev/null | sed -n '2,7p' }
 
 # Useful for audio in background
 alias mpvnv="mpv --no-video --loop"
+
+# Play all .mkv files in current directory
+alias mpvall='mpv --playlist=<(find . -name "*.mkv" -print0 | xargs -0 realpath | sort)'
