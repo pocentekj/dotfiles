@@ -57,5 +57,5 @@ fzmpv() {
 fzpdf() {
  local file
  file=$(fd -e pdf | fzf) || return 1
- setsid evince "$file" </dev/null >/dev/null 2>&1 &
+ setsid xreader "$file" </dev/null >/dev/null 2>&1 &
 }
