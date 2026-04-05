@@ -32,6 +32,7 @@ alias t='tmux'
 # -----------------------------------------------------------------------------
 
 alias fd='fd --no-ignore-vcs --hidden'
+alias rg='rg --no-ignore-vcs'
 alias delta="DELTA_FEATURES=+side-by-side delta"
 
 # EDITOR
