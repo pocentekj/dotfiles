@@ -31,7 +31,7 @@ alias t='tmux'
 # SANE DEFAULTS
 # -----------------------------------------------------------------------------
 
-alias fd='fd --no-ignore-vcs --hidden'
+alias fd='fd --glob --no-ignore-vcs --hidden'
 alias rg='rg --no-ignore-vcs'
 alias delta="DELTA_FEATURES=+side-by-side delta"
 
