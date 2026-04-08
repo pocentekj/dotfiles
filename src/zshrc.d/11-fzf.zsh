@@ -35,10 +35,12 @@ fze() {
   nvim -- "$file"
 }
 
-# Search for markdown files with live preview (requires glow)
-fzmd() {
-  local file
-  file=$(fd -e md | fzf --preview 'glow -- {}') || return 1
+# Search notes and open selected in Neovim
+fznote() {
+  file=$(
+    fd --glob --no-ignore-vcs -t file "*.md" "$HOME/Notes" \
+    | fzf --preview 'glow -- {}'
+  ) || return 1
   nvim -- "$file"
 }
 

@@ -31,7 +31,7 @@ alias t='tmux'
 # SANE DEFAULTS
 # -----------------------------------------------------------------------------
 
-alias fdpp='fd --glob --no-ignore-vcs --hidden'
+alias fdpp='fd --glob --no-ignore-vcs --hidden --ignore-case'
 alias grepp='rg --no-ignore-vcs'
 alias diffpp="DELTA_FEATURES=+side-by-side delta"
 
