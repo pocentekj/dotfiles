@@ -6,7 +6,7 @@ alias la="ls -lha --color"
 alias tg="tree -aI .git --gitignore --filesfirst"
 alias cp="cp -i"
 alias mv="mv -i"
-alias rms="rm -i"
+alias rm="rm -i"
 alias wcp="wl-copy"
 alias wpp="wl-paste"
 
