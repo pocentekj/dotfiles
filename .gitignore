@@ -4,9 +4,9 @@
 .envrc
 Session.vim
 
-# This is auto-generated file. Edit ini.template instead and sync changes with
-# simple 'cp src/mc/ini.template src/mc/ini'
+# Binaries and auto-generated program files
 src/mc/ini
+src/ncspot/*.cbor
 
 # Config files with secrets
 src/mc/hotlist
