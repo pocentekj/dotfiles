@@ -17,3 +17,41 @@ mkscript() {
 
   echo "Created $filename"
 }
+
+fdbytime() {
+  local search_path="${1:-$PWD}"
+
+  fd \
+    . \
+    --hidden \
+    --extension mkv \
+    --extension webm \
+    --max-depth 1 \
+    --print0 \
+    -- "$search_path" |
+  xargs \
+    --null \
+    --no-run-if-empty \
+    stat --printf='%Y\t%n\n' |
+  sort --numeric-sort |
+  cut --fields=2-
+}
+
+fdbyrtime() {
+  local search_path="${1:-$PWD}"
+
+  fd \
+    . \
+    --hidden \
+    --extension mkv \
+    --extension webm \
+    --max-depth 1 \
+    --print0 \
+    -- "$search_path" |
+  xargs \
+    --null \
+    --no-run-if-empty \
+    stat --printf='%Y\t%n\n' |
+  sort --numeric-sort --reverse |
+  cut --fields=2-
+}
