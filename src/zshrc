@@ -149,3 +149,5 @@ export NVM_DIR="$HOME/.nvm"
 
 # Supress warning from powerlevel instant prompt if there's some output before
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+
+export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
