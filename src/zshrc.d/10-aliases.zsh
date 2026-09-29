@@ -27,7 +27,13 @@ alias gst='git status'
 # -----------------------------------------------------------------------------
 
 alias t='tmux'
+
+# SUDO-ALIASES
+# -----------------------------------------------------------------------------
+# Meant to be used with `NOPASSWD` in `sudoers` file
+
 alias reboot='sudo /usr/bin/reboot'
+alias poweroff='sudo /usr/bin/poweroff'
 
 # SANE DEFAULTS
 # -----------------------------------------------------------------------------
@@ -38,8 +44,6 @@ alias diffpp="DELTA_FEATURES=+side-by-side delta"
 
 # EDITOR
 # -----------------------------------------------------------------------------
-
-alias v="nvim"
 
 nv() {
   local session_file="Session.vim"
