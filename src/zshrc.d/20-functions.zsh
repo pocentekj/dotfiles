@@ -55,3 +55,13 @@ fdbyrtime() {
   sort --numeric-sort --reverse |
   cut --fields=2-
 }
+
+# `qp` -> "Quick Ping"
+qp() {
+  if [[ -z "$1" ]]; then
+    echo "Usage: qp <hostname>"
+    return 1
+  fi
+
+  ping -qc1 "$1" | tail -n1 | cut -d'=' -f2 | cut -d'/' -f3
+}
