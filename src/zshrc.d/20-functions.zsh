@@ -70,3 +70,12 @@ cdu() {
   setopt localoptions pipefail
   du --human-readable --total "${1:-$PWD}" | tail -n1 | cut -f1
 }
+
+gn() {
+  if [[ -z "$1" ]]; then
+    echo "Usage: gn <BRANCH_NAME>"
+    return 1
+  fi
+
+  git checkout -b "$1"
+}
