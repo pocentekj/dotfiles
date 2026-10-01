@@ -39,8 +39,7 @@ alias poweroff='sudo /usr/bin/poweroff'
 # -----------------------------------------------------------------------------
 
 alias fdpp='fd --glob --no-ignore-vcs --hidden --ignore-case'
-alias grepp='rg --no-ignore-vcs'
-alias diffpp="DELTA_FEATURES=+side-by-side delta"
+alias cdu='du --human-readable --total . | tail -n1 | cut -f1'
 
 # EDITOR
 # -----------------------------------------------------------------------------
