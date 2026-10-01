@@ -65,3 +65,8 @@ qp() {
 
   ping -qc1 "$1" | tail -n1 | cut -d'=' -f2 | cut -d'/' -f3
 }
+
+cdu() {
+  setopt localoptions pipefail
+  du --human-readable --total "${1:-$PWD}" | tail -n1 | cut -f1
+}
