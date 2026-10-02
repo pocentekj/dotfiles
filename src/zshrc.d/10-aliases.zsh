@@ -10,6 +10,11 @@ alias rm="rm -i"
 alias wcp="wl-copy"
 alias wpp="wl-paste"
 
+# Quick directory listing - requires `rs-cut`
+td() {
+  tree -dL"${1:-"1"}" | rs-cut --skip-empty --cut 4 | head -n-1
+}
+
 # GIT COMMANDS
 # -----------------------------------------------------------------------------
 
