@@ -18,11 +18,14 @@ alias gall='git add --all'
 alias gc='git commit'
 alias gca='git commit --amend'
 alias gck='git checkout'
-alias gd='git diff'
 alias gl='git log --pretty=oneline'
 alias gp='git push'
 alias gpf='git push --force'
 alias gst='git status'
+
+gd() {
+  git diff "$@" | delta
+}
 
 # SHORTCUTS
 # -----------------------------------------------------------------------------
