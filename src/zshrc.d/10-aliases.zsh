@@ -85,3 +85,4 @@ wttr() { curl -sS "wttr.in/${WTTR_LOC:-}" 2>/dev/null | sed -n '2,7p' }
 
 # Useful for audio in background
 alias mpvnv="mpv --no-video --loop"
+alias allmedia='fd -a -e mkv -e webm -e mp3 -e opus -e ogg -e flac . | sort'
