@@ -28,3 +28,7 @@ symlink items from `src/scripts`, like this:
 ```
 ln -s $(pwd)/src/scripts/nv.sh "$HOME/.local/bin/nv"
 ```
+
+## License
+
+[Unlicense](https://unlicense.org/). See [LICENSE](LICENSE) for details.
